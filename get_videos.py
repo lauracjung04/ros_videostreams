@@ -6,10 +6,11 @@ import os
 dataset = load_dataset("HuggingFaceFV/finevideo", split="train", streaming=True)
 
 # Define the category you want to filter by
-desired_category = 'Your_Category_Here'  # Replace with your desired category
+desired_category = 'Biology'  # Replace with your desired category
 
+#specifically for a fine category
 def is_desired_category(sample):
-    return sample['json']['content_parent_category'] == desired_category
+    return sample['json']['content_fine_category'] == desired_category
 
 filtered_dataset = filter(is_desired_category, dataset)
 
@@ -25,3 +26,8 @@ for idx, sample in enumerate(filtered_dataset):
     json_filename = f"metadata/sample_{idx}.json"
     with open(json_filename, 'w') as json_file:
         json.dump(sample['json'], json_file)
+
+    print(f"Got sample {idx}", flush=True)
+
+    if idx >= 9:  # Limit to 10 samples
+        break
