@@ -27,7 +27,7 @@ class serial_bridge_node(Node):
         self.get_logger().info(f'Opened {port} @ {baud} baud')
  
         # Poll the serial port at 100 Hz
-        self.create_timer(0.01, self.read_serial)
+        self.create_timer(0.001, self.read_serial)
 
     def read_serial(self):
         try:
