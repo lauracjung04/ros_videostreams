@@ -8,8 +8,7 @@ from std_msgs.msg import String
 COMMANDS = {
     'next': 'next',
     'previous': 'previous',
-    'play': 'play',
-    'pause': 'pause',
+    'play/pause': 'play/pause',
 }
 
 
@@ -22,7 +21,7 @@ class CommandInputNode(Node):
         threading.Thread(target=self.input_loop, daemon=True).start()
 
     def input_loop(self):
-        print('Commands: next, previous, play,pause (Ctrl+C to quit)')
+        print('Commands: next, previous, play/pause (Ctrl+C to quit)')
         while rclpy.ok():
             try:
                 text = input('> ').strip().lower()
@@ -34,7 +33,7 @@ class CommandInputNode(Node):
 
             command = COMMANDS.get(text)
             if command is None:
-                print(f'Unknown command "{text}". Use: next, previous, play, pause')
+                print(f'Unknown command "{text}". Use: next, previous, play/pause')
                 continue
 
             self.pub.publish(String(data=command))

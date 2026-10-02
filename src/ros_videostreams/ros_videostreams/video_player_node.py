@@ -66,12 +66,9 @@ class VideoPlayerNode(Node):
     def command_callback(self, msg):
         command = msg.data
 
-        if command == 'play':
-            self.paused = False
-            self.get_logger().info('Playing')
-        elif command == 'pause':
-            self.paused = True
-            self.get_logger().info('Paused')
+        if command == 'play/pause':
+            self.paused = not self.paused
+            self.get_logger().info('Paused' if self.paused else 'Playing')
         elif command == 'next':
             self.switch_video((self.index + 1) % self.video_count)
         elif command == 'previous':
