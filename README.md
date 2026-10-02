@@ -17,8 +17,9 @@ An Arduino with a **potentiometer** and a **momentary button** streams readings 
 ## How it works
 
 **Demo Video**
-https://github.com/user-attachments/assets/94226502-090f-4f73-a865-5188ef304631
+[![Demo video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://drive.google.com/file/d/1PEAMu_zXMDytNfeNFpNa6u8AK_QUGTMj/view?usp=sharing)
 
+---
 ```
 Arduino (pot + button)
         │  serial
