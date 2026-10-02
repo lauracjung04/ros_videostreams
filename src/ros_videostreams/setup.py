@@ -20,6 +20,7 @@ setup(
         'console_scripts': [
             'serial_bridge_node = ros_videostreams.serial_bridge_node:main',
             'video_player_node = ros_videostreams.video_player_node:main',
+            'command_input_node = ros_videostreams.command_input_node:main'
         ],
     },
 )
